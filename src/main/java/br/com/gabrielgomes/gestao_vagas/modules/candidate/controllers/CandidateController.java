@@ -17,5 +17,4 @@ public class CandidateController {
     System.out.println("Candidato");
     System.out.println(candidateEntity.getEmail());
   }
-  
 }
