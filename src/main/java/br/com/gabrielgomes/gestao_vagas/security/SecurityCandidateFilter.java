@@ -5,6 +5,8 @@ import br.com.gabrielgomes.gestao_vagas.providers.JWTCandidateProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -13,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 
 import java.io.IOException;
+import java.util.Collections;
 
 @Component
 public class SecurityCandidateFilter extends OncePerRequestFilter {
@@ -31,7 +34,12 @@ public class SecurityCandidateFilter extends OncePerRequestFilter {
                     return;
                 }
                 request.setAttribute("candidate_id", token.getSubject());
-                var role = token.getClaim("roles");
+                var roles = token.getClaim("roles").asList(Object.class);
+                var grants = roles.stream().map(role -> new SimpleGrantedAuthority(role.toString())).toList();
+
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(token.getSubject(), null, grants);
+                SecurityContextHolder.getContext().setAuthentication(auth);
+
 
             }
 
