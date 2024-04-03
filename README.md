@@ -56,6 +56,4 @@ $ mvn spring-boot:run
 - `POST /job/`: Retorna os detalhes de uma vaga específica.
 - `GET /candidate/`: Lista as vagas do candidato
 
-## Segurança
-A autenticação é realizada via JWT. Após o login bem-sucedido, o usuário recebe um token que deve ser utilizado nas requisições subsequentes para acesso aos endpoints protegidos.
 
