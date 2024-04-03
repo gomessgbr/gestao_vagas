@@ -47,14 +47,13 @@ $ mvn spring-boot:run
 ## Endpoints da API
 
 ### Autenticação
-- `POST /login`: Autentica o usuário e retorna um token JWT.
+- `POST /company/auth`: Faz a authenticação da empresa criada.
+- `POST /candidate/auth`: Faz a authenticação da empresa criada.
 
 ### Gestão de Vagas
 - `POST /candidate/`: Cria Candidatos para a vaga
 - `POST /company`: Cria empresas que disponibilizam vagas
 - `POST /job/`: Retorna os detalhes de uma vaga específica.
-- `POST /company/auth`: Faz a authenticação da empresa criada
-- `POST /candidate/auth`: Faz a authenticação da empresa criada
 - `GET /candidate/`: Lista as vagas do candidato
 
 ## Segurança
