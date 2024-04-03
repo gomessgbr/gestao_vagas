@@ -15,7 +15,7 @@ A Gestão Vagas é uma API desenvolvida em Java com Spring Boot destinada à ges
 ## Como Executar
 
 ### Pré-requisitos
-- Java JDK 17 ou superior
+- Java 17 ou superior
 - Maven para gerenciamento de dependências
 - Docker instalado para execução do banco de dados
 
